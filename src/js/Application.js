@@ -17,5 +17,16 @@ export default class Application extends EventEmitter {
     this.emojis = emojis;
   }
 
-  addBananas() {}
+  addBananas() {
+    const monkeyWithBanana = this.emojis.map((monkey) => {
+      return `${monkey} ${this.banana}`;
+    });
+
+    monkeyWithBanana.forEach((emoji) => {
+      let newParagraph = document.createElement("p");
+      newParagraph.innerHTML = emoji;
+      let divEmojis = document.getElementById("emojis");
+      divEmojis.appendChild(newParagraph);
+    });
+  }
 }
